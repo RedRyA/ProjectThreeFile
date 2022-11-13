@@ -13,7 +13,7 @@
 #include <string.h>
 #include <errno.h>
 typedef struct LIBRARY_STRUCT libraryStruct;
-
+tpedef struct COMMAND_PARAMS commParams;
 #define ERROR_TRAP_BUFFER 1024
 #define MAX_YEAR 2022
 #define MIN_YEAR 1475
@@ -26,7 +26,7 @@ typedef struct LIBRARY_STRUCT libraryStruct;
 #define ISBN_MAX 9999999999999
 #define MAX_COUNTER 2
 #define DEF_CATALOG_NAME "cardcat.txt"
-
+#define DEF_ARG_COUNT 3
 
   /* 
  FIRST NAME:
@@ -38,6 +38,12 @@ typedef struct LIBRARY_STRUCT libraryStruct;
  PUB CITY:
  ISBN:
 */
+typredef struct COMMAND_PARAMS{
+	;
+	char* fileName;
+	size_t fileNameLen;
+	
+}
 
 struct LIBRARY_STRUCT {
 
@@ -75,12 +81,12 @@ void getPubYear(unsigned int* val);
 void getPubCity(char* nameEnter);
 void getISBN(unsigned long* val);
 void printCard(libraryStruct* card, FILE* fptr);
+ ParseParams(int argc, char* argv[]);
 
 
 
 
-
-int main() {
+int main(int argc char* argv{}) {
     
 FILE* cardOut;
 
@@ -363,4 +369,7 @@ void printCard(libraryStruct* card, FILE* fptr){
       fprintf(fptr,"\nPublication City %s", card->pubCity);
       fprintf (fptr,"\nISBN: %lu \n", card->isbn);
 }
+ ParseParams(int argc, char* argv[]){
+	 if(argc != DEF_ARG_COUNT)
+ }
 
